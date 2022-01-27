@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Room</string>
+    <string name="add_icon_text">Boton de agregar palabras</string>
 </resources>
