@@ -1,4 +1,4 @@
-package com.inmersoft.room
+package com.inmersoft.room.data.source.local.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

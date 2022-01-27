@@ -2,8 +2,9 @@ package com.inmersoft.room.hilt.di
 
 import android.content.Context
 import androidx.room.Room
-import com.inmersoft.room.WordDao
-import com.inmersoft.room.WordRoomDatabase
+import com.inmersoft.room.data.source.local.dao.WordDao
+import com.inmersoft.room.data.source.local.WordRoomDatabase
+import com.inmersoft.room.data.source.repository.WordRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,11 +18,15 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun provideDatabase(@ApplicationContext appContext: Context): WordRoomDatabase {
-        return Room.databaseBuilder(
-            appContext,
-            WordRoomDatabase::class.java,
-            "logging.db"
-        ).build()
+        return WordRoomDatabase.getDatabase(
+            appContext
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun providesRepository(wordDao: WordDao): WordRepository {
+        return WordRepository(wordDao = wordDao)
     }
 
     @Provides

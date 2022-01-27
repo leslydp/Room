@@ -1,14 +1,16 @@
-package com.inmersoft.room
+package com.inmersoft.room.data.source.local
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.inmersoft.room.data.source.local.entity.Word
+import com.inmersoft.room.data.source.local.dao.WordDao
 
 
 // Annotates class to be a Room Database with a table (entity) of the Word class
-@Database(entities = arrayOf(Word::class), version = 1, exportSchema = false)
-public abstract class WordRoomDatabase : RoomDatabase() {
+@Database(entities = [Word::class], version = 1, exportSchema = false)
+abstract class WordRoomDatabase : RoomDatabase() {
 
     abstract fun wordDao(): WordDao
 
